@@ -1,11 +1,11 @@
-apiVersion:   v1
-kind:         Pod
+apiVersion: v1
+kind: Pod
 metadata:
-  name:       jumpod
+  name: jumpod
 spec:
   containers:
-  - name:     shell
-    image:    maven:3.3-jdk-8-alpine
+  - name: shell
+    image: maven:3.3-jdk-8-alpine
     command:
       - "/bin/sh"
       - "-c"
