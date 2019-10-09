@@ -1,2 +1,2 @@
-# postgress-boot
-Postgress With Spring boot 
+# Java-Postgresql
+Java With Postgresql 
