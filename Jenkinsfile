@@ -6,11 +6,11 @@ node {
          sh 'use $jenkins_key'
        }
      }
-     #checkout scm
+     // checkout scm
    }
-   #stage('build') {
-     #docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-       #def app = docker.build("anasabdullah/java-app:${version}", '.').push()
-     #}
-   #}
+   // stage('build') {
+     // docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+       // def app = docker.build("anasabdullah/java-app:${version}", '.').push()
+     // }
+   // }
 }
