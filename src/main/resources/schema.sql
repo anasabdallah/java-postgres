@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS employee;
 CREATE TABLE employee
 (
  employeeName varchar(100) NOT NULL,
