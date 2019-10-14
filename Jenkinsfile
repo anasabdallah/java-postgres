@@ -1,11 +1,10 @@
 node {
    def version = '0.0.1'
    stage('prebuild') {
-     ws {
-       withCredentials([file(credentialsId: 'jenkins-service-account	', variable: 'jenkins_key')]) {
-         sh 'use $jenkins_key'
-       }
-     }
+     withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins-service-account')]) {
+         sh "cat \$jenkins-service-account"
+}
+
      // checkout scm
    }
    // stage('build') {
