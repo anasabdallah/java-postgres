@@ -4,9 +4,7 @@ node {
     cleanWs()
   }
   stage('prebuild') {
-    sh "pwd && ls -la"
-    checkout scm
-    sh "pwd && ls -la"
+    sh "git clone https://github.com/anasabdallah/java-postgres.git && mv java-postgres/* ./ && rm -rf java-postgresgit"
     withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
       sh """
          gcloud auth activate-service-account --key-file $jenkins && \
