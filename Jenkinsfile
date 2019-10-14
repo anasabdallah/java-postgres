@@ -25,6 +25,7 @@ node {
        kubectl delete deployment.apps/java && \
        kubectl apply -f kubernetes/java-deployment.yml
        """
+    sh "echo 'service deployed'"
     currentBuild.result = 'SUCCESS'
   }
 }
