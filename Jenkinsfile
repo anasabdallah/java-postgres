@@ -5,6 +5,7 @@ node {
          sh "cp \$jenkins ./jenkins.json"
          sh """
              gcloud auth activate-service-account --key-file jenkins.json && \
+             gcloud config set compute/zone us-east1-b && \
              gcloud container clusters get-credentials test-cluster && \
              kubectl get pods
             """
