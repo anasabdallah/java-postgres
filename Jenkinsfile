@@ -4,7 +4,9 @@ node {
     cleanWs()
   }
   stage('prebuild') {
+    sh "pwd && ls -la"
     checkout scm
+    sh "pwd && ls -la"
     withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
       sh """
          gcloud auth activate-service-account --key-file $jenkins && \
