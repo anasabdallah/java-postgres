@@ -1,6 +1,5 @@
 node {
   def version = '0.0.2'
-  currentBuild.result = 'FAILURE'
   stage('clean') {
     cleanWs()
   }
@@ -21,10 +20,9 @@ node {
   }
   stage('deploy') {
     sh """
-       kubectl delete deployment.apps/java && \
-       kubectl apply -f kubernetes/java-deployment.yml
+       kubectl delete deployment.apps/java service/java-app && \
+       kubectl apply -f kubernetes/java-deployment.yml && \
+       kubectl apply -f kubernetes/java-service.yml
        """
-    sh "echo 'service deployed'"
-    currentBuild.result = 'SUCCESS'
   }
 }
