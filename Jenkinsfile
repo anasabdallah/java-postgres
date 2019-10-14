@@ -1,5 +1,5 @@
 node {
-  def version = '0.0.1'
+  def version = '0.0.2'
   currentBuild.result = 'FAILURE'
   stage('clean') {
     cleanWs()
