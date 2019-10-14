@@ -3,8 +3,11 @@ node {
    stage('prebuild') {
      withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
          sh "cp \$jenkins ./jenkins.json"
-         sh "ls -la"
-         sh "cat jenkins.json"
+         sh """
+             gcloud auth activate-service-account --key-file jenkins.json && \
+             gcloud container clusters get-credentials test-cluster && \
+             kubectl get pods
+            """
 }
 
      // checkout scm
