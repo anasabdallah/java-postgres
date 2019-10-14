@@ -1,7 +1,6 @@
 pipeline {
   agent any
   def version = '0.0.1'
-  currentBuild.result = 'FAILURE'
   stage('clean') {
     steps {
       cleanWs()
@@ -35,7 +34,6 @@ pipeline {
         kubectl apply -f kubernetes/java-deployment.yml
       """
       sh "echo 'service deployed'"
-      currentBuild.result = 'SUCCESS'
     }
   }
 }
