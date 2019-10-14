@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  def version = '0.0.1'
   stage('clean') {
     steps {
       cleanWs()
@@ -23,7 +22,7 @@ pipeline {
   stage('build') {
     steps {
       docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-        def app = docker.build("anasabdullah/java-app:${version}", '.').push()
+        def app = docker.build("anasabdullah/java-app:0.0.1", '.').push()
       }
     }
   }
