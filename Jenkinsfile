@@ -7,7 +7,7 @@ node {
       sh """
          gcloud auth activate-service-account --key-file jenkins.json && \
          gcloud config set compute/zone us-east1-b && \
-         gcloud container clusters get-credentials test-cluster && \
+         gcloud container clusters get-credentials test-cluster
          """
     } 
   }
