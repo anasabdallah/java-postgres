@@ -2,7 +2,7 @@ node {
    def version = '0.0.1'
    stage('prebuild') {
      withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins-service-account')]) {
-         sh "cat \$jenkins-service-account"
+         sh "echo \$jenkins-service-account"
 }
 
      // checkout scm
