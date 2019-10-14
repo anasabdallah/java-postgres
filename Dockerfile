@@ -4,4 +4,4 @@ EXPOSE 8080
 ADD ./ ./
 USER root
 RUN mvn install
-CMD ["java", "-jar", "target/postgress-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/postgress-0.0.2-SNAPSHOT.jar"]
