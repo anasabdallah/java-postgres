@@ -18,7 +18,7 @@ node {
   }
   stage('deploy') {
     sh """
-       kubectl delete deployment.apps/java
+       kubectl delete deployment.apps/java && \
        kubectl apply -f kubernetes/java-deployment.yml
        """
   }
