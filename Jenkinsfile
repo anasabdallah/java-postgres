@@ -4,6 +4,7 @@ node {
      withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
          sh "cp \$jenkins ./jenkins.json"
          sh "ls -la"
+         sh "cat jenkins.json"
 }
 
      // checkout scm
