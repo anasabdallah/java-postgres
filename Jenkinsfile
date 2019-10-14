@@ -3,9 +3,9 @@ node {
   stage('prebuild') {
     checkout scm
     withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
-      sh "cp \$jenkins ./jenkins.json"
+      // sh "cp \$jenkins ./jenkins.json"
       sh """
-         gcloud auth activate-service-account --key-file jenkins.json && \
+         gcloud auth activate-service-account --key-file $jenkins && \
          gcloud config set compute/zone us-east1-b && \
          gcloud container clusters get-credentials test-cluster
          """
@@ -18,7 +18,13 @@ node {
   }
   stage('deploy') {
     sh """
-       kubectl get all
+       kubectl delete deployment.apps/jenkins
+       kubectl apply -f kubernetes/java-deployment.yml
        """
+  }
+  post { 
+    always {
+      cleanWs()
+    }
   }
 }
