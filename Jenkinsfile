@@ -1,5 +1,6 @@
 node {
   def version = '0.0.1'
+  currentBuild.result = 'FAILURE'
   stage('prebuild') {
     checkout scm
     withCredentials([file(credentialsId: 'jenkins-service-account', variable: 'jenkins')]) {
@@ -21,6 +22,7 @@ node {
        kubectl delete deployment.apps/java && \
        kubectl apply -f kubernetes/java-deployment.yml
        """
+    currentBuild.result = 'SUCCESS'
   }
   post { 
     always {
